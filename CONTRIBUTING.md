@@ -6,7 +6,7 @@ pull request.
 
 ## Development
 
-Use Go 1.25 or later, then run:
+Use Go 1.25.8 or later, then run:
 
 ```bash
 go mod verify

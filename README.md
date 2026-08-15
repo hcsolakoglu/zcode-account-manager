@@ -90,7 +90,7 @@ with the manifest.
 
 ## Build from source
 
-Requirements are Go 1.25 or later. Linux requires `secret-tool` (package
+Requirements are Go 1.25.8 or later. Linux requires `secret-tool` (package
 `libsecret-tools` on Ubuntu/Pop!_OS); macOS uses `/usr/bin/security`; Windows
 uses the built-in user-scoped DPAPI.
 
