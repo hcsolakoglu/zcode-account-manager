@@ -7,7 +7,7 @@ import (
 
 	"golang.org/x/sys/windows"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/windowssecure"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/windowssecure"
 )
 
 func hardenCoordinatorFile(path string) error { return windowssecure.ProtectFile(path) }

@@ -6,10 +6,10 @@ otherwise.
 ## Repository creation
 
 - Owner: `hcsolakoglu`
-- Name: `zcode-auth`
+- Name: `zcode-account-manager`
 - Visibility: private
 - Default branch: `main`
-- Description: `Secure cross-platform ZCode profile manager with atomic credentials.json and telemetry-state.json rotation.`
+- Description: `Secure cross-platform CLI for managing multiple ZCode accounts with encrypted profiles, safe switching, backups, and recovery.`
 - Topics: `go`, `golang`, `cli`, `cross-platform`, `credential-management`,
   `account-switching`, `security`, `backup`, `zcode`
 

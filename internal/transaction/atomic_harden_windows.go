@@ -2,6 +2,6 @@
 
 package transaction
 
-import "github.com/hcsolakoglu/zcode-auth/internal/windowssecure"
+import "github.com/hcsolakoglu/zcode-account-manager/internal/windowssecure"
 
 func hardenWindowsFile(path string) error { return windowssecure.ProtectFile(path) }

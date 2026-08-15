@@ -11,7 +11,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
 )
 
 const maxStateBytes = 32 << 20

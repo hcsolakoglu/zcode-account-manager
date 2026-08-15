@@ -1,8 +1,7 @@
-# zcode-auth: secure multi-account profiles for ZCode
+# ZCode Account Manager
 
 `zcode-auth` is a security-focused, cross-platform Go CLI for encrypted ZCode
-account profiles, transactional account switching, backup and recovery, and
-atomic `credentials.json` plus `telemetry-state.json` rotation.
+account profiles, transactional account switching, backup, and recovery.
 
 > **Status:** pre-release. Linux amd64 has native runtime coverage. macOS and
 > Windows artifacts cross-compile successfully but still require native-host
@@ -13,22 +12,21 @@ without modifying ZCode binaries. It targets the official
 [ZCode desktop platforms](https://zcode.z.ai/en/docs/install): Linux x64
 (beta), macOS Intel and Apple Silicon, and Windows x64 and ARM64. It also
 detects the bundled `zcode` CLI when it shares the same host state directory.
-The adapter is deliberately limited to the shared state contract verified
-from the installed ZCode 3.7.7 bundle: `~/.zcode/v2/credentials.json`,
-`telemetry-state.json`, and `telemetry-state.lock` contract; separate Z.ai API
-key or coding-helper stores are not imported or mutated.
+The adapter is deliberately limited to the shared authentication-state
+contract verified from the installed ZCode 3.7.7 bundle; separate Z.ai API key
+or coding-helper stores are not imported or mutated.
 
 ## Features
 
 - Encrypted, immutable-ID account profiles with aliases.
 - Automatic synchronization of refreshed credentials before switching.
 - Transactional A → B → A switching, including `switch -`.
-- Account-scoped telemetry rotation with exact byte and absence preservation.
+- Account-scoped companion-state preservation during every switch.
 - Encrypted manual and automatic backups with bounded automatic retention.
 - Crash recovery, corruption checks, ownership validation, and symlink or
   reparse-point rejection.
 - Native Secret Service, macOS Keychain, and Windows DPAPI key backends.
-- Safe JSON output that excludes credentials and telemetry values.
+- Safe JSON output that excludes credentials and private account-state values.
 
 ## Platform validation
 
@@ -46,8 +44,8 @@ key or coding-helper stores are not imported or mutated.
   secure store (Linux Secret Service, macOS Keychain, or Windows user-scoped
   DPAPI) and never in the profile directory. There is no plaintext key
   fallback.
-- `credentials.json` and `telemetry-state.json` rotate as one account-scoped
-  bundle. A durable encrypted journal recovers an interrupted two-file change.
+- ZCode's authentication state rotates as one account-scoped bundle. A durable
+  encrypted journal recovers an interrupted multi-file change.
 - Profile blob and registry updates use a separate `profile.journal` so a
   crash during save/remove recovers to one complete old-or-new profile set;
   the journal stores only encrypted profile bytes and metadata.
@@ -58,21 +56,21 @@ key or coding-helper stores are not imported or mutated.
   checks, and restrictive permissions. Reparse points/symlinks and
   unverifiable ownership are rejected.
 - Before any live-state mutation, the CLI detects both desktop and bundled CLI
-  owners and checks `telemetry-state.lock`; any existing lock fails closed.
-  An active bundled CLI is never
-  guessed at or force-killed; mutation is refused. Windows desktop restart is
-  also refused when no verified graceful-shutdown protocol is available.
+  owners and product locks; any existing lock fails closed. An active bundled
+  CLI is never guessed at or force-killed; mutation is refused. Windows
+  desktop restart is also refused when no verified graceful-shutdown protocol
+  is available.
 - ZCode must be stopped for a state replacement. On Linux, when the native
   process name distinguishes the observed desktop from the bundled CLI,
   `switch --restart` performs a bounded `SIGTERM`, verifies exit, switches,
   then starts ZCode again. It does not silently escalate to `SIGKILL`. On
   macOS/Windows or an ambiguous shared image, close ZCode manually; automatic
   restart fails closed rather than guessing.
-- Diagnostic and JSON output omit tokens, decrypted account objects, telemetry
-  identifiers, authorization headers, and encryption keys.
+- Diagnostic and JSON output omit tokens, decrypted account objects, private
+  account identifiers, authorization headers, and encryption keys.
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the transaction and
-telemetry invariants.
+state-preservation invariants.
 
 ## Installation
 
@@ -186,20 +184,6 @@ Environment overrides with the same purpose are
 base directory and resolves state as `<base>/v2`. These variables do not carry
 encryption keys or tokens.
 
-## Telemetry-state rotation
-
-ZCode 3.7.7 was observed writing `deviceMid` and `lastDailyActiveDate` to
-`telemetry-state.json`; revalidate this contract after ZCode upgrades. The CLI
-treats the entire file as account-scoped opaque state:
-
-- A profile stores its own exact telemetry document inside the encrypted blob.
-- Switching restores the target profile's document.
-- Switching to a profile that has no telemetry removes stale live telemetry.
-- Login, logout, backup, restore, crash rollback, and doctor recovery include
-  telemetry presence and bytes.
-
-The CLI never prints telemetry values.
-
 ## Platform and shared CLI scope
 
 The profile and backup envelopes include adapter metadata (`state_group`,
@@ -223,9 +207,11 @@ launches while an account-state command is running.
 
 ## Scope
 
-The CLI changes only the two live authentication files named above and its own
+The CLI changes only ZCode's known live authentication state and its own
 platform-native data/config. ZCode task databases, workspaces, settings, logs,
-bot state, certificates, and caches are outside its mutation scope.
+bot state, certificates, and caches are outside its mutation scope. Exact
+state-file compatibility details are documented in
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Security and contributing
 

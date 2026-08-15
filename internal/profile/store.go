@@ -18,7 +18,7 @@ import (
 
 	"golang.org/x/crypto/chacha20poly1305"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
 )
 
 const (

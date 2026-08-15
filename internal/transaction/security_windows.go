@@ -5,7 +5,7 @@ package transaction
 import (
 	"os"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/windowssecure"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/windowssecure"
 )
 
 func privateFilePermissions(path string, info os.FileInfo) bool {
