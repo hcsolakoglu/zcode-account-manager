@@ -4,7 +4,7 @@ import (
 	"context"
 	"os"
 
-	proc "github.com/hcsolakoglu/zcode-auth/internal/process"
+	proc "github.com/hcsolakoglu/zcode-account-manager/internal/process"
 )
 
 // Process aliases keep ZCode command code independent from the generic proc

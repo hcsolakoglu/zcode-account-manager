@@ -12,9 +12,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
-	"github.com/hcsolakoglu/zcode-auth/internal/profile"
-	"github.com/hcsolakoglu/zcode-auth/internal/zcode"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/profile"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/zcode"
 )
 
 const coordinatorSchema = 1

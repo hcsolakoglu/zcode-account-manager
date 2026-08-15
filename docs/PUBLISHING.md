@@ -1,30 +1,31 @@
-# GitHub publishing checklist
+# GitHub publishing and release checklist
 
 This repository must remain private unless the owner explicitly decides
 otherwise.
 
-## Repository creation
+## Canonical repository
 
 - Owner: `hcsolakoglu`
-- Name: `zcode-auth`
+- Name: `zcode-account-manager`
 - Visibility: private
 - Default branch: `main`
-- Description: `Secure cross-platform ZCode profile manager with atomic credentials.json and telemetry-state.json rotation.`
+- Description: `Secure cross-platform CLI for managing multiple ZCode accounts with encrypted profiles, safe switching, backups, and recovery.`
 - Topics: `go`, `golang`, `cli`, `cross-platform`, `credential-management`,
-  `account-switching`, `security`, `backup`, `zcode`
+  `account-switching`, `security`, `backup`, `zcode`,
+  `zcode-account-manager`
 
-Do not initialize the GitHub repository with another README, license, or
-`.gitignore`; the local repository already contains them.
+The local repository is the source of truth for README, license, and ignore
+rules. Do not replace them with GitHub-generated variants.
 
-## Before the first push
+## Before a release or significant push
 
 1. Confirm the repository-local Git author uses the account's exact GitHub
    noreply address, not a personal email.
 2. Run `gitleaks dir . --redact` and the full CI-equivalent test suite.
 3. Confirm `git status --short` excludes `outputs/`, `work/`, and local secrets.
 4. Inspect the staged diff and commit metadata before committing.
-5. Create the remote as private, add `origin`, and push `main` only after
-   explicit approval.
+5. Publish through a pull request to the protected `main` branch; do not bypass
+   required checks for routine changes.
 
 ## GitHub settings
 

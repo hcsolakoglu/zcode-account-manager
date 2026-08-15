@@ -9,12 +9,12 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/config"
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
-	zprocess "github.com/hcsolakoglu/zcode-auth/internal/process"
-	"github.com/hcsolakoglu/zcode-auth/internal/profile"
-	"github.com/hcsolakoglu/zcode-auth/internal/transaction"
-	"github.com/hcsolakoglu/zcode-auth/internal/zcode"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/config"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
+	zprocess "github.com/hcsolakoglu/zcode-account-manager/internal/process"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/profile"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/transaction"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/zcode"
 )
 
 var Version = "0.1.0"

@@ -3,7 +3,7 @@
 package profile
 
 import (
-	"github.com/hcsolakoglu/zcode-auth/internal/windowssecure"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/windowssecure"
 	"os"
 )
 

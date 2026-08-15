@@ -7,7 +7,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/config"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/config"
 )
 
 var ErrUsage = errors.New("invalid command usage")

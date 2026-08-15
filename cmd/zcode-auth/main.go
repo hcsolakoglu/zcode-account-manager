@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/commands"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/commands"
 )
 
 func main() {

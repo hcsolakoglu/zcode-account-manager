@@ -22,11 +22,11 @@ vet:
 # the same host-specific binary and shares only the proven v2 auth state.
 cross-build:
 	@mkdir -p $(RELEASE_DIR)
-	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-auth/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-linux-amd64 ./cmd/zcode-auth
-	GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-auth/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-darwin-amd64 ./cmd/zcode-auth
-	GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-auth/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-darwin-arm64 ./cmd/zcode-auth
-	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-auth/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-windows-amd64.exe ./cmd/zcode-auth
-	GOOS=windows GOARCH=arm64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-auth/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-windows-arm64.exe ./cmd/zcode-auth
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-account-manager/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-linux-amd64 ./cmd/zcode-auth
+	GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-account-manager/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-darwin-amd64 ./cmd/zcode-auth
+	GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-account-manager/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-darwin-arm64 ./cmd/zcode-auth
+	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-account-manager/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-windows-amd64.exe ./cmd/zcode-auth
+	GOOS=windows GOARCH=arm64 CGO_ENABLED=0 go build -buildvcs=false -trimpath -ldflags '-s -w -X github.com/hcsolakoglu/zcode-account-manager/internal/commands.Version=$(VERSION)' -o $(RELEASE_DIR)/zcode-auth-windows-arm64.exe ./cmd/zcode-auth
 
 release: cross-build
 	@mkdir -p $(RELEASE_DIR)

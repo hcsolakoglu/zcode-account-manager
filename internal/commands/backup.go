@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
-	zprocess "github.com/hcsolakoglu/zcode-auth/internal/process"
-	"github.com/hcsolakoglu/zcode-auth/internal/transaction"
-	"github.com/hcsolakoglu/zcode-auth/internal/zcode"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
+	zprocess "github.com/hcsolakoglu/zcode-account-manager/internal/process"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/transaction"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/zcode"
 )
 
 func (a *App) encryptBackup(bundle model.SessionBundle, credentialsPresent bool) (transaction.EncryptedSessionBundle, error) {

@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
-	"github.com/hcsolakoglu/zcode-auth/internal/profile"
-	"github.com/hcsolakoglu/zcode-auth/internal/transaction"
-	"github.com/hcsolakoglu/zcode-auth/internal/zcode"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/profile"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/transaction"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/zcode"
 )
 
 type listItem struct {

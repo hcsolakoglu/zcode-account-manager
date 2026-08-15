@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hcsolakoglu/zcode-auth/internal/model"
+	"github.com/hcsolakoglu/zcode-account-manager/internal/model"
 )
 
 func TestValidateCredentialsRejectsDuplicateKeys(t *testing.T) {

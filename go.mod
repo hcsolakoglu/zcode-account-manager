@@ -1,4 +1,4 @@
-module github.com/hcsolakoglu/zcode-auth
+module github.com/hcsolakoglu/zcode-account-manager
 
 go 1.25.8
 
