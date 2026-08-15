@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible problem without including private data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste credentials, tokens, telemetry identifiers, key material, or unsanitized ZCode state. Use SECURITY.md for vulnerabilities.
+  - type: input
+    id: version
+    attributes:
+      label: zcode-auth version
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Linux amd64
+        - macOS amd64
+        - macOS arm64
+        - Windows amd64
+        - Windows arm64
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Explain what happened and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Sanitized reproduction
+      description: Use synthetic data and remove usernames and local paths.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, tokens, account identifiers, telemetry values, and personal data.
+          required: true

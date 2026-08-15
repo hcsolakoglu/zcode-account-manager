@@ -1,0 +1,21 @@
+/bin/
+/dist/
+/outputs/
+/work/
+/coverage.out
+/zcode-auth
+*.exe
+*.tmp
+
+# Local configuration, credentials, and editor/OS state.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
